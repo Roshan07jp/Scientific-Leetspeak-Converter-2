@@ -1,0 +1,13 @@
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/scientific_leetspeak_converter
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/data/icudtl.dat
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/lib/libfile_selector_linux_plugin.so
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/data/flutter_assets/version.json
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/data/flutter_assets/NativeAssetsManifest.json
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.bin
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES.Z
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/data/flutter_assets/FontManifest.json
+/workspaces/Scientific-Leetspeak-Converter-2/build/linux/x64/debug/bundle/data/flutter_assets/shaders/ink_sparkle.frag
