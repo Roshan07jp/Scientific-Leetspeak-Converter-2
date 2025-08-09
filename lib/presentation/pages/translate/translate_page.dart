@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:scientific_leetspeak_app/data/repositories/history_repository_impl.dart';
-import 'package:scientific_leetspeak_app/data/repositories/translation_repository_impl.dart';
-import 'package:scientific_leetspeak_app/domain/repositories/history_repository.dart';
-import 'package:scientific_leetspeak_app/domain/repositories/translation_repository.dart';
-import 'package:scientific_leetspeak_app/domain/usecases/add_translation_to_history.dart';
-import 'package:scientific_leetspeak_app/domain/usecases/translate_text.dart';
+import 'package:scientific_leetspeak_converter/domain/translation_engine.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 import 'dart:async';
 
@@ -22,20 +17,13 @@ class _TranslatePageState extends State<TranslatePage> {
   final TextEditingController _controller = TextEditingController();
   String _translatedText = 'Translated text will appear here';
 
-  // In a real app, you would inject these dependencies.
-  final HistoryRepository _historyRepository = HistoryRepositoryImpl();
-  final TranslationRepository _translationRepository =
-      TranslationRepositoryImpl();
-  late final AddTranslationToHistory _addTranslationToHistory;
-  late final TranslateText _translateText;
+  final TranslationEngine _translationEngine = TranslationEngine();
   final SpeechToText _speechToText = SpeechToText();
   Timer? _debounce;
 
   @override
   void initState() {
     super.initState();
-    _addTranslationToHistory = AddTranslationToHistory(_historyRepository);
-    _translateText = TranslateText(_translationRepository);
     _controller.addListener(() {
       // Not using undo/redo for now
       // _undoRedoController.add(_controller.text);
@@ -99,7 +87,7 @@ class _TranslatePageState extends State<TranslatePage> {
     });
   }
 
-  void _translate(String text) async {
+  void _translate(String text) {
     if (text.isEmpty) {
       setState(() {
         _translatedText = 'Translated text will appear here';
@@ -107,25 +95,9 @@ class _TranslatePageState extends State<TranslatePage> {
       return;
     }
 
-    setState(() {});
-
-    try {
-      final translation = await _translateText(text);
-      await _addTranslationToHistory(translation);
-
-      setState(() {
-        _translatedText = translation.translatedText;
-      });
-    } catch (e) {
-      setState(() {
-        _translatedText = 'Error: Could not translate text.';
-      });
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Text('Translation failed. Please try again.')),
-      );
-    }
+    setState(() {
+      _translatedText = _translationEngine.translate(text);
+    });
   }
 
   @override

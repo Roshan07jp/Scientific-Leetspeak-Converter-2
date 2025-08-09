@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:scientific_leetspeak_app/presentation/pages/dictionary/dictionary_page.dart';
-import 'package:scientific_leetspeak_app/presentation/pages/history/history_page.dart';
-import 'package:scientific_leetspeak_app/presentation/pages/practice/practice_page.dart';
-import 'package:scientific_leetspeak_app/presentation/pages/settings/settings_page.dart';
-import 'package:scientific_leetspeak_app/presentation/pages/translate/translate_page.dart';
+import 'package:scientific_leetspeak_converter/presentation/pages/dictionary/alphabet_dictionary_page.dart';
+import 'package:scientific_leetspeak_converter/presentation/pages/dictionary/dictionary_page.dart';
+import 'package:scientific_leetspeak_converter/presentation/pages/grammar/grammar_page.dart';
+import 'package:scientific_leetspeak_converter/presentation/pages/history/history_page.dart';
+import 'package:scientific_leetspeak_converter/presentation/pages/practice/practice_page.dart';
+import 'package:scientific_leetspeak_converter/presentation/pages/settings/settings_page.dart';
+import 'package:scientific_leetspeak_converter/presentation/pages/translate/translate_page.dart';
 
 class MainNavigator extends StatefulWidget {
   const MainNavigator({super.key});
@@ -98,6 +100,7 @@ class SideDrawer extends StatelessWidget {
             title: const Text('About'),
             onTap: () {
               Navigator.pop(context);
+              // TODO: Implement About page navigation
             },
           ),
           ListTile(
@@ -105,6 +108,29 @@ class SideDrawer extends StatelessWidget {
             title: const Text('Share'),
             onTap: () {
               Navigator.pop(context);
+              // TODO: Implement Share functionality
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.sort_by_alpha),
+            title: const Text('A-Z Dictionary'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AlphabetDictionaryPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.book_online),
+            title: const Text('Grammar'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const GrammarPage()),
+              );
             },
           ),
           ListTile(
@@ -112,6 +138,7 @@ class SideDrawer extends StatelessWidget {
             title: const Text('Rate App'),
             onTap: () {
               Navigator.pop(context);
+              // TODO: Implement Rate App functionality
             },
           ),
         ],

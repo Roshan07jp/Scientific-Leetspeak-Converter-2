@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:scientific_leetspeak_app/data/repositories/settings_repository_impl.dart';
-import 'package:scientific_leetspeak_app/domain/entities/settings.dart';
-import 'package:scientific_leetspeak_app/domain/repositories/settings_repository.dart';
-import 'package:scientific_leetspeak_app/domain/usecases/get_settings.dart';
-import 'package:scientific_leetspeak_app/presentation/navigation/main_navigator.dart';
+import 'package:scientific_leetspeak_converter/data/repositories/settings_repository_impl.dart';
+import 'package:scientific_leetspeak_converter/domain/entities/settings.dart';
+import 'package:scientific_leetspeak_converter/domain/repositories/settings_repository.dart';
+import 'package:scientific_leetspeak_converter/domain/usecases/get_settings.dart';
+import 'package:scientific_leetspeak_converter/presentation/navigation/main_navigator.dart';
 
 void main() {
   runApp(const MyApp());

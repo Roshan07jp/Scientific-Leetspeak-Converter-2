@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:scientific_leetspeak_converter/presentation/pages/dictionary/extended_dictionary_page.dart';
-import '../../../data/symbol_data_source.dart';
+import '../../../data/extended_symbol_data_source.dart';
 import '../../../domain/symbol.dart';
 
-class DictionaryPage extends StatefulWidget {
-  const DictionaryPage({super.key});
+class ExtendedDictionaryPage extends StatefulWidget {
+  const ExtendedDictionaryPage({super.key});
 
   @override
-  State<DictionaryPage> createState() => _DictionaryPageState();
+  State<ExtendedDictionaryPage> createState() => _ExtendedDictionaryPageState();
 }
 
-class _DictionaryPageState extends State<DictionaryPage> {
+class _ExtendedDictionaryPageState extends State<ExtendedDictionaryPage> {
   List<Symbol> _symbols = [];
   List<Symbol> _filteredSymbols = [];
   final List<String> _categories = ['All', 'Favorites', 'Physics', 'Chemistry', 'Biology', 'Math', 'Quantum'];
@@ -21,7 +20,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
   @override
   void initState() {
     super.initState();
-    _symbols = SymbolDataSource.symbols;
+    _symbols = ExtendedSymbolDataSource.symbols;
     _filteredSymbols = _symbols;
     _searchController.addListener(_filterSymbols);
     _filterSymbols();
@@ -38,7 +37,6 @@ class _DictionaryPageState extends State<DictionaryPage> {
             symbol.category == _selectedCategory;
         return (symbolMatches || meaningMatches) && categoryMatches;
       }).toList();
-
       if (_sortOption == 'Alphabetical') {
         _filteredSymbols.sort((a, b) => a.symbol.compareTo(b.symbol));
       }
@@ -56,17 +54,8 @@ class _DictionaryPageState extends State<DictionaryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dictionary'),
+        title: const Text('Extended Dictionary'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.open_in_new),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ExtendedDictionaryPage()),
-              );
-            },
-          ),
           PopupMenuButton<String>(
             onSelected: (value) {
               setState(() {
@@ -147,8 +136,10 @@ class _DictionaryPageState extends State<DictionaryPage> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Equation: ${symbol.equation}'),
-                                  const SizedBox(height: 8.0),
+                                  if (symbol.equation.isNotEmpty) ...[
+                                    Text('Equation: ${symbol.equation}'),
+                                    const SizedBox(height: 8.0),
+                                  ],
                                   Text('Usage: ${symbol.usage}'),
                                   const SizedBox(height: 8.0),
                                   Text('Category: ${symbol.category}'),

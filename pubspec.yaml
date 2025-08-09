@@ -1,4 +1,4 @@
-name: scientific_leetspeak_app
+name: scientific_leetspeak_converter
 description: "A real-time scientific symbol translator that converts text into symbols from quantum physics, chemistry, biology, and mathematics for fun, learning, and scientific expression."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -39,6 +39,7 @@ dependencies:
   speech_to_text: ^6.1.1
   image_picker: ^0.8.6
   google_ml_kit: ^0.13.0
+  flutter_markdown: ^0.7.7+1
 
 dev_dependencies:
   flutter_test:

@@ -2,6 +2,12 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "args",
+      "rootUri": "file:///home/codespace/.pub-cache/hosted/pub.dev/args-2.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
       "name": "async",
       "rootUri": "file:///home/codespace/.pub-cache/hosted/pub.dev/async-2.13.0",
       "packageUri": "lib/",
@@ -96,6 +102,12 @@
       "rootUri": "file:///home/codespace/.pub-cache/hosted/pub.dev/flutter_lints-6.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.8"
+    },
+    {
+      "name": "flutter_markdown",
+      "rootUri": "file:///home/codespace/.pub-cache/hosted/pub.dev/flutter_markdown-0.7.7+1",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
     },
     {
       "name": "flutter_plugin_android_lifecycle",
@@ -294,6 +306,12 @@
       "rootUri": "file:///home/codespace/.pub-cache/hosted/pub.dev/lints-6.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.8"
+    },
+    {
+      "name": "markdown",
+      "rootUri": "file:///home/codespace/.pub-cache/hosted/pub.dev/markdown-7.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
     },
     {
       "name": "matcher",
